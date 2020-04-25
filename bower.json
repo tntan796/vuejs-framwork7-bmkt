@@ -1,0 +1,17 @@
+{
+  "name": "VMKT",
+  "version": "0.0.2",
+  "description": "Прототип мобильного приложения для владивостокского морского контейнерного терминала",
+  "authors": [
+    {
+      "name": "Andrey Pastukhov",
+      "email": "gmtyllo@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "animatewithsass": "~3.2.2",
+    "roboto-fontface": "~0.4.3",
+    "Framework7": "framework7#~1.4.2",
+    "Ionicons": "ionicons#~2.0.1"
+  }
+}

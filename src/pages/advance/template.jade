@@ -1,0 +1,28 @@
+.list-group
+
+  .list-block.media-list.clear-both
+    ul(v-show='summa_bill && summa')
+      li: item-content(
+        :title="$t('advance.summa_bill')")
+        b(slot='subtitle') {{ summa_bill | formatSumm | toSummaTitle }}
+      li: item-content(
+        :title="$t('advance.summa')")
+        b(slot='subtitle') {{ summa | formatSumm | toSummaTitle }}
+
+  template(v-if='advance.length')
+    .content-block-title {{ $t('advance.advance') }}
+    .list-block.media-list.clear-both
+      ul: li(v-for='item in advance | orderBy orderName')
+        item-content(
+          :title='item.summa | formatSumm | toSummaTitle')
+          .badge.badge-clear(slot='after') {{* item.date | dateFull }}
+
+  template(v-if='debt.length')
+    .content-block-title {{ $t('advance.debt') }}
+    .list-block.media-list.clear-top
+      ul: li.accordion-item(v-for="bill in debt | orderBy orderName")
+        item-content-link(
+          :title.once="$t('bills.header', {number: bill.number})",
+          :subtitle=' bill.date | dateFull | toDateTo',
+          v-link="linkToBillInfo(bill.number)")
+          .badge.badge-clear(slot='after') {{* bill.summa | formatSumm | toSummaTitle }}
